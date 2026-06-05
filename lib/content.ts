@@ -26,13 +26,23 @@ export interface PageMeta {
   domain?: string
 }
 
+// gray-matter parses bare dates (2026-06-05) as JS Date objects.
+// Stringify any Date values so React can render them safely.
+function sanitizeMeta(data: Record<string, unknown>): PageMeta {
+  const out: Record<string, unknown> = {}
+  for (const [k, v] of Object.entries(data)) {
+    out[k] = v instanceof Date ? v.toISOString().slice(0, 10) : v
+  }
+  return out as PageMeta
+}
+
 export async function getPage(section: string, slug = 'index'): Promise<{ meta: PageMeta; html: string } | null> {
   try {
     const filePath = path.join(contentDir, section, `${slug}.md`)
     const raw = fs.readFileSync(filePath, 'utf8')
     const { data, content } = matter(raw)
     const processed = await remark().use(remarkHtml).process(content)
-    return { meta: data as PageMeta, html: processed.toString() }
+    return { meta: sanitizeMeta(data), html: processed.toString() }
   } catch { return null }
 }
 
@@ -44,7 +54,7 @@ export async function getSectionPages(section: string): Promise<{ meta: PageMeta
     const raw = fs.readFileSync(path.join(dir, f), 'utf8')
     const { data, content } = matter(raw)
     const processed = await remark().use(remarkHtml).process(content)
-    return { meta: data as PageMeta, html: processed.toString() }
+    return { meta: sanitizeMeta(data), html: processed.toString() }
   }))
   return results.sort((a, b) => (a.meta.title ?? '').localeCompare(b.meta.title ?? ''))
 }
