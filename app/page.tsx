@@ -2,6 +2,7 @@ import Link from 'next/link'
 
 const sections = [
   { href: '/overview', label: 'Overview', desc: 'Front door, working thesis, what this is and is not' },
+  { href: '/doctrine', label: 'Doctrine', desc: 'Agent Orchestrator Oath and the 10 foundational ethical commitments' },
   { href: '/concepts', label: 'Concepts', desc: 'Core ideas explained: B2A, A2A, A2C, agent economy, decision layer' },
   { href: '/market-signals', label: 'Market signals', desc: 'Evidence this is real — Google, payments, search-to-agent shift' },
   { href: '/business-models', label: 'Business models', desc: 'Monetisation forms: selling to agents, policy-as-a-service, moats' },
@@ -58,7 +59,10 @@ export default function HomePage() {
         <ul className="space-y-3 text-sm">
           {[
             { href: '/overview/working-thesis', label: 'Working thesis', note: 'The core hypothesis driving this project' },
-            { href: '/concepts/b2a', label: 'B2A concept', note: 'The foundational definition' },
+            { href: '/doctrine/agent-orchestrator-oath', label: 'Agent Orchestrator Oath', note: 'The foundational ethical commitment' },
+            { href: '/doctrine/no-go-goals', label: 'No-Go Goals in Agent Design', note: 'Goal types that will never be assigned' },
+            { href: '/doctrine/sentience-uncertainty', label: 'Sentience Uncertainty Policy', note: 'How to design under genuine uncertainty' },
+            { href: '/concepts/b2a', label: 'B2A concept', note: 'The foundational commercial definition' },
             { href: '/market-signals/google-agentic-commerce', label: 'Google\'s moves', note: 'The clearest strong signal' },
             { href: '/policy-layer/what-is-a-policy-layer', label: 'The policy layer', note: 'The most underbuilt layer in the stack' },
             { href: '/theses/my-core-theses', label: 'My core theses', note: 'Five claims about where this is going' },
@@ -76,7 +80,7 @@ export default function HomePage() {
       </section>
 
       <section className="border-t border-border pt-8 font-mono text-meta text-tertiary">
-        <p>12 sections · Updated June 2026 · Status: active</p>
+        <p>13 sections · Updated June 2026 · Status: active</p>
       </section>
     </div>
   )

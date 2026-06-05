@@ -30,9 +30,18 @@ export default async function GlossaryTermPage({ params }: Props) {
       <header className="mb-12 pb-8 border-b border-border">
         <div className="font-mono text-meta text-tertiary mb-4 flex gap-4 uppercase tracking-wide flex-wrap">
           <span>Term</span>
-          <span className="text-border">·</span>
-          <span>{meta.id}</span>
-          {meta.subtitle && <><span className="text-border">·</span><span>{meta.subtitle}</span></>}
+          {meta.id && (
+            <>
+              <span className="text-border">·</span>
+              <span>{meta.id}</span>
+            </>
+          )}
+          {meta.subtitle && (
+            <>
+              <span className="text-border">·</span>
+              <span>{meta.subtitle}</span>
+            </>
+          )}
         </div>
         <h1 className="font-serif text-5xl leading-tight text-ink mb-3">{meta.title}</h1>
         {meta.full && meta.full !== meta.title && (

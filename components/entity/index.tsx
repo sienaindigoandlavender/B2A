@@ -16,6 +16,7 @@ const sectionLabels: Record<string, string> = {
   'business-models': 'Business model', 'agent-protocols': 'Protocol',
   'policy-layer': 'Policy', implementation: 'Implementation', 'use-cases': 'Use case',
   theses: 'Thesis', experiments: 'Experiment', glossary: 'Term', resources: 'Resource',
+  doctrine: 'Doctrine',
 }
 
 export function EntityHeader({ section, id, title, subtitle, status, confidence, updated }: HeaderProps) {
