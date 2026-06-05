@@ -1,7 +1,9 @@
+'use client'
+
 // EntityHeader
 interface HeaderProps {
   section: string
-  id: string
+  id?: string
   title: string
   subtitle?: string
   status?: string
@@ -21,8 +23,12 @@ export function EntityHeader({ section, id, title, subtitle, status, confidence,
     <header className="mb-12 pb-8 border-b border-border">
       <div className="font-mono text-meta text-tertiary mb-4 flex gap-4 uppercase tracking-wide flex-wrap items-center">
         <span>{sectionLabels[section] ?? section}</span>
-        <span className="text-border">·</span>
-        <span>{id}</span>
+        {id && (
+          <>
+            <span className="text-border">·</span>
+            <span>{id}</span>
+          </>
+        )}
         {updated && (
           <>
             <span className="text-border">·</span>
