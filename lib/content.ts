@@ -15,19 +15,18 @@ export interface PageMeta {
   slug: string
   title: string
   subtitle?: string
-  status?: 'seed' | 'active' | 'strong-signal' | 'speculative' | 'dead-end'
-  confidence?: 'low' | 'medium' | 'high'
+  status?: string
+  confidence?: string
   updated?: string
   metadata?: MetaField[]
   related?: RelatedPage[]
-  // glossary
   term?: string
   full?: string
   domain?: string
 }
 
-// gray-matter parses bare dates (2026-06-05) as JS Date objects.
-// Stringify any Date values so React can render them safely.
+// gray-matter parses bare YAML dates (2026-06-05) as JS Date objects.
+// Convert any Date values to ISO strings so React can render them.
 function sanitizeMeta(data: Record<string, unknown>): PageMeta {
   const out: Record<string, unknown> = {}
   for (const [k, v] of Object.entries(data)) {
