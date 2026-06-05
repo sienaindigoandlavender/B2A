@@ -8,6 +8,8 @@ status: active
 confidence: high
 updated: "2026-06-05"
 related:
+  - label: Code of Ethics
+    href: /doctrine/code-of-ethics
   - label: What Counts as Others
     href: /doctrine/what-counts-as-others
   - label: No Gossip, No Harm
