@@ -80,7 +80,7 @@ export default function HomePage() {
       </section>
 
       <section className="border-t border-border pt-8 font-mono text-meta text-tertiary">
-        <p>13 sections · Updated June 2026 · Status: active</p>
+        <p>13 sections · 21 doctrine pages · Updated June 2026 · Status: active</p>
       </section>
     </div>
   )
